@@ -33,22 +33,22 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-slate-900 to-slate-800 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-2xl">
+    <main className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-blue-50 border border-blue-300 rounded-xl p-6 md:p-8 shadow-md">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-white">
-            Hotel<span className="text-amber-400">Desk</span>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Hotel<span className="text-blue-500">Desk</span>
           </h1>
-          <p className="text-slate-400 mt-2 text-sm">
+          <p className="text-gray-600 mt-2 text-xs md:text-sm">
             Ingresa tus credenciales
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="space-y-1">
+          <div className="space-y-2">
             <label
               htmlFor="email-input"
-              className="text-sm text-slate-300 font-medium"
+              className="text-sm text-gray-700 font-medium"
             >
               Correo electrónico
             </label>
@@ -58,14 +58,14 @@ export default function LoginPage() {
               type="email"
               required
               placeholder="admin@hoteldesk.com"
-              className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition"
+              className="w-full px-4 py-2 bg-white border border-blue-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent transition"
             />
           </div>
 
-          <div className="space-y-1">
+          <div className="space-y-2">
             <label
               htmlFor="password-input"
-              className="text-sm text-slate-300 font-medium"
+              className="text-sm text-gray-700 font-medium"
             >
               Contraseña
             </label>
@@ -75,12 +75,12 @@ export default function LoginPage() {
               type="password"
               required
               placeholder="••••••••"
-              className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition"
+              className="w-full px-4 py-2 bg-white border border-blue-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent transition"
             />
           </div>
 
           {error && (
-            <p className="text-red-400 text-sm text-center bg-red-400/10 py-2 rounded-lg">
+            <p className="text-red-700 text-sm text-center bg-red-100 py-2 rounded-lg">
               {error}
             </p>
           )}
@@ -88,7 +88,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-amber-400 hover:bg-amber-300 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 font-semibold rounded-xl transition-all duration-200"
+            className="w-full py-2 bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-200"
           >
             {loading ? "Ingresando..." : "Ingresar"}
           </button>

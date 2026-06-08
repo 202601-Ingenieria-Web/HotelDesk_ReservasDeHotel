@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Cálida HotelDesk */
+  --color-primary: var(--color-orange-600);
+  --color-primary-hover: var(--color-orange-700);
+  --color-accent: var(--color-amber-500);
+  
+  /* Fondos y Superficies */
+  --color-warm-bg: var(--color-stone-50);
+  --color-warm-card: var(--color-white);
+  --color-warm-border: var(--color-stone-200);
+  
+  /* Texto */
+  --color-warm-text: var(--color-stone-900);
+  --color-warm-muted: var(--color-stone-600);
+  
+  --radius-xl: 1rem;
+}

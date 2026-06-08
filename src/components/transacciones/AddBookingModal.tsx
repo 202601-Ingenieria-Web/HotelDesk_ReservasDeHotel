@@ -67,9 +67,9 @@ export default function AddBookingModal({
     <Modal title="Nuevo movimiento" subtitle={room.name} onClose={onClose}>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Saldo actual */}
-        <div className="bg-slate-800 rounded-xl px-4 py-3 flex items-center justify-between">
-          <span className="text-slate-400 text-sm">Noches reservadas</span>
-          <span className="text-white font-semibold">
+        <div className="bg-blue-100 rounded-lg px-4 py-3 flex items-center justify-between">
+          <span className="text-gray-700 text-sm">Noches reservadas</span>
+          <span className="text-gray-900 font-semibold">
             {room.balance} noches
           </span>
         </div>
@@ -97,13 +97,13 @@ export default function AddBookingModal({
         )}
 
         {error && (
-          <p className="text-red-400 text-sm bg-red-400/10 px-4 py-2 rounded-lg">
+          <p className="text-red-700 text-sm bg-red-100 px-4 py-2 rounded-lg">
             {error}
           </p>
         )}
 
         {success && (
-          <p className="text-green-400 text-sm bg-green-400/10 px-4 py-2 rounded-lg">
+          <p className="text-green-700 text-sm bg-green-100 px-4 py-2 rounded-lg">
             ✓ Movimiento registrado exitosamente
           </p>
         )}

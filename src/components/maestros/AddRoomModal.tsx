@@ -82,7 +82,7 @@ export default function AddRoomModal({
           options={ROOM_TYPES.map((t) => ({ value: t, label: t }))}
         />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
             label="Capacidad (pax)"
             name="capacity"
@@ -111,13 +111,13 @@ export default function AddRoomModal({
         />
 
         {error && (
-          <p className="text-red-400 text-sm bg-red-400/10 px-4 py-2 rounded-lg">
+          <p className="text-red-700 text-sm bg-red-100 px-4 py-2 rounded-lg">
             {error}
           </p>
         )}
 
         {success && (
-          <p className="text-green-400 text-sm bg-green-400/10 px-4 py-2 rounded-lg">
+          <p className="text-green-700 text-sm bg-green-100 px-4 py-2 rounded-lg">
             ✓ Habitación creada exitosamente
           </p>
         )}

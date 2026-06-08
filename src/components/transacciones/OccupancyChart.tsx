@@ -42,43 +42,43 @@ export default function OccupancyChart({
   });
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-      <h2 className="text-white font-semibold mb-6">
+    <div className="bg-white border border-blue-300 rounded-lg p-4 md:p-6">
+      <h2 className="text-gray-900 font-semibold mb-4 md:mb-6 text-sm md:text-base">
         Evolución de saldo — {roomName}
       </h2>
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height={200} minHeight={200}>
         <AreaChart data={chartData}>
           <defs>
             <linearGradient id="colorSaldo" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#fbbf24" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#fbbf24" stopOpacity={0} />
+              <stop offset="5%" stopColor="#00ABE4" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#00ABE4" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E9F1FA" />
           <XAxis
             dataKey="fecha"
-            tick={{ fill: "#94a3b8", fontSize: 12 }}
-            axisLine={{ stroke: "#1e293b" }}
+            tick={{ fill: "#1A1A1A", fontSize: 12 }}
+            axisLine={{ stroke: "#E9F1FA" }}
             tickLine={false}
           />
           <YAxis
-            tick={{ fill: "#94a3b8", fontSize: 12 }}
-            axisLine={{ stroke: "#1e293b" }}
+            tick={{ fill: "#1A1A1A", fontSize: 12 }}
+            axisLine={{ stroke: "#E9F1FA" }}
             tickLine={false}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: "#0f172a",
-              border: "1px solid #1e293b",
-              borderRadius: "12px",
-              color: "#f8fafc",
+              backgroundColor: "#FFFFFF",
+              border: "1px solid #00ABE4",
+              borderRadius: "8px",
+              color: "#1A1A1A",
             }}
             formatter={(value) => [`${value} noches`, "Saldo"]}
           />
           <Area
             type="monotone"
             dataKey="saldo"
-            stroke="#fbbf24"
+            stroke="#00ABE4"
             strokeWidth={2}
             fill="url(#colorSaldo)"
           />

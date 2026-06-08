@@ -48,7 +48,7 @@ export default function MaestrosPage() {
     if (loading) {
       return (
         <div className="flex items-center justify-center py-20">
-          <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+          <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
         </div>
       );
     }
@@ -56,8 +56,8 @@ export default function MaestrosPage() {
     if (rooms.length === 0) {
       return (
         <div className="flex flex-col items-center justify-center py-20 gap-3">
-          <BedDouble className="text-slate-600" size={40} />
-          <p className="text-slate-500">No hay habitaciones registradas</p>
+          <BedDouble className="text-blue-300" size={40} />
+          <p className="text-blue-500">No hay habitaciones registradas</p>
         </div>
       );
     }
@@ -65,61 +65,61 @@ export default function MaestrosPage() {
     return (
       <table className="w-full">
         <thead>
-          <tr className="border-b border-slate-800">
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <tr className="border-b border-blue-200">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               ID
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Habitación
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Tipo
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Capacidad
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Precio / noche
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Saldo
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Creado por
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-slate-800">
+        <tbody className="divide-y divide-blue-100">
           {rooms.map((room) => (
             <tr
               key={room.id}
-              className="hover:bg-slate-800/50 transition-colors"
+              className="hover:bg-blue-50 transition-colors"
             >
-              <td className="px-6 py-4 text-xs text-slate-500 font-mono">
+              <td className="px-6 py-4 text-xs text-gray-600 font-mono">
                 {room.id.slice(0, 8)}...
               </td>
-              <td className="px-6 py-4 text-white font-medium">{room.name}</td>
+              <td className="px-6 py-4 text-gray-900 font-medium">{room.name}</td>
               <td className="px-6 py-4">
-                <span className="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs rounded-lg">
+                <span className="px-2.5 py-1 bg-blue-100 text-blue-600 text-xs rounded-lg">
                   {room.type}
                 </span>
               </td>
-              <td className="px-6 py-4 text-slate-300">{room.capacity} pax</td>
-              <td className="px-6 py-4 text-slate-300">
+              <td className="px-6 py-4 text-gray-700">{room.capacity} pax</td>
+              <td className="px-6 py-4 text-gray-700">
                 ${room.pricePerNight.toLocaleString("es-CO")}
               </td>
               <td className="px-6 py-4">
                 <span
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg ${
                     room.balance > 0
-                      ? "bg-green-400/15 text-green-400"
-                      : "bg-red-400/15 text-red-400"
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
                   }`}
                 >
                   {room.balance} noches
                 </span>
               </td>
-              <td className="px-6 py-4 text-slate-400 text-sm">
+              <td className="px-6 py-4 text-amber-800 text-sm">
                 {room.createdBy.name ?? room.createdBy.email}
               </td>
             </tr>
@@ -132,17 +132,17 @@ export default function MaestrosPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Habitaciones</h1>
-          <p className="text-slate-400 text-sm mt-1">
+          <h1 className="text-xl md:text-2xl font-bold text-amber-950">Habitaciones</h1>
+          <p className="text-amber-700 text-xs md:text-sm mt-1">
             Gestión del inventario de habitaciones
           </p>
         </div>
         {isAdmin && (
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold rounded-xl transition-all duration-150"
+            className="flex items-center justify-center md:justify-start gap-2 px-3 md:px-4 py-2 md:py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm md:text-base rounded-lg transition-all duration-150 w-full md:w-auto"
           >
             <Plus size={18} />
             Agregar habitación
@@ -151,9 +151,10 @@ export default function MaestrosPage() {
       </div>
 
       {/* Tabla */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-        {/* Aquí invocamos de manera limpia la función */}
-        {renderTableContent()}
+      <div className="rounded-lg border border-orange-200 bg-white overflow-x-auto">
+        <div className="inline-block min-w-full">
+          {renderTableContent()}
+        </div>
       </div>
 
       {/* Modal para agregar habitación */}

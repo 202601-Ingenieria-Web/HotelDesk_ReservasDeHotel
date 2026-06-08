@@ -96,7 +96,7 @@ export default function TransaccionesPage() {
     if (loadingBookings) {
       return (
         <div className="flex items-center justify-center py-16">
-          <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+          <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
         </div>
       );
     }
@@ -104,8 +104,8 @@ export default function TransaccionesPage() {
     if (bookings.length === 0) {
       return (
         <div className="flex flex-col items-center justify-center py-16 gap-3">
-          <TrendingUp className="text-slate-600" size={40} />
-          <p className="text-slate-500">No hay movimientos registrados</p>
+          <TrendingUp className="text-blue-300" size={40} />
+          <p className="text-blue-500">No hay movimientos registrados</p>
         </div>
       );
     }
@@ -113,34 +113,34 @@ export default function TransaccionesPage() {
     return (
       <table className="w-full">
         <thead>
-          <tr className="border-b border-slate-800">
-            <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <tr className="border-b border-blue-200">
+            <th className="text-left px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               ID
             </th>
-            <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Fecha
             </th>
-            <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Tipo
             </th>
-            <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Noches
             </th>
-            <th className="text-left px-6 py-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <th className="text-left px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Registrado por
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-slate-800">
+        <tbody className="divide-y divide-blue-100">
           {bookings.map((booking) => (
             <tr
               key={booking.id}
-              className="hover:bg-slate-800/50 transition-colors"
+              className="hover:bg-blue-50 transition-colors"
             >
-              <td className="px-6 py-4 text-xs text-slate-500 font-mono">
+              <td className="px-6 py-4 text-xs text-gray-600 font-mono">
                 {booking.id.slice(0, 8)}...
               </td>
-              <td className="px-6 py-4 text-slate-300 text-sm">
+              <td className="px-6 py-4 text-gray-700 text-sm">
                 {new Date(booking.date).toLocaleDateString("es-CO", {
                   year: "numeric",
                   month: "short",
@@ -151,17 +151,17 @@ export default function TransaccionesPage() {
                 <span
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg ${
                     booking.type === "ENTRADA"
-                      ? "bg-red-400/15 text-red-400"
-                      : "bg-green-400/15 text-green-400"
+                      ? "bg-red-100 text-red-700"
+                      : "bg-green-100 text-green-700"
                   }`}
                 >
                   {booking.type === "ENTRADA" ? "Check-in" : "Check-out"}
                 </span>
               </td>
-              <td className="px-6 py-4 text-white font-medium">
+              <td className="px-6 py-4 text-amber-950 font-medium">
                 {booking.nights} {booking.nights === 1 ? "noche" : "noches"}
               </td>
-              <td className="px-6 py-4 text-slate-400 text-sm">
+              <td className="px-6 py-4 text-amber-800 text-sm">
                 {booking.user.name ?? booking.user.email}
               </td>
             </tr>
@@ -174,17 +174,17 @@ export default function TransaccionesPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Transacciones</h1>
-          <p className="text-slate-400 text-sm mt-1">
+          <h1 className="text-xl md:text-2xl font-bold text-amber-950">Transacciones</h1>
+          <p className="text-amber-700 text-xs md:text-sm mt-1">
             Movimientos de reservas por habitación
           </p>
         </div>
         <button
           onClick={() => setShowModal(true)}
           disabled={!selectedRoom}
-          className="flex items-center gap-2 px-4 py-2 bg-amber-400 hover:bg-amber-300 disabled:opacity-40 disabled:cursor-not-allowed text-slate-900 font-semibold rounded-xl transition-all duration-150"
+          className="flex items-center justify-center md:justify-start gap-2 px-3 md:px-4 py-2 md:py-2 bg-orange-600 hover:bg-orange-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold text-sm md:text-base rounded-lg transition-all duration-150 w-full md:w-auto"
         >
           <Plus size={18} />
           Agregar movimiento
@@ -192,15 +192,15 @@ export default function TransaccionesPage() {
       </div>
 
       {/* Dropdown selector de habitación */}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <label
           htmlFor="room-select"
-          className="text-slate-400 text-sm font-medium whitespace-nowrap"
+          className="text-amber-900 text-sm font-medium whitespace-nowrap"
         >
           Habitación:
         </label>
         {loadingRooms ? (
-          <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
+          <div className="w-6 h-6 border-2 border-orange-600 border-t-transparent rounded-full animate-spin" />
         ) : (
           <select
             id="room-select" // ✅ Vinculación de accesibilidad
@@ -209,7 +209,7 @@ export default function TransaccionesPage() {
               const room = rooms.find((r) => r.id === e.target.value);
               if (room) setSelectedRoom(room);
             }}
-            className="px-4 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition"
+            className="px-4 py-2 bg-white border border-orange-200 rounded-lg text-amber-950 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
           >
             {rooms.map((room) => (
               <option key={room.id} value={room.id}>
@@ -221,14 +221,16 @@ export default function TransaccionesPage() {
       </div>
 
       {/* Tabla de movimientos */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-slate-800">
-          <h2 className="text-white font-semibold">
-            Movimientos{selectedRoom ? ` — ${selectedRoom.name}` : ""}
-          </h2>
+      <div className="rounded-lg border border-blue-300 bg-white overflow-x-auto">
+        <div className="inline-block min-w-full">
+          <div className="px-6 py-4 border-b border-blue-200">
+            <h2 className="text-gray-900 font-semibold text-sm md:text-base">
+              Movimientos{selectedRoom ? ` — ${selectedRoom.name}` : ""}
+            </h2>
+          </div>
+          {/* Renderizado condicional limpio sin ternarios anidados */}
+          {renderTableContent()}
         </div>
-        {/* Renderizado condicional limpio sin ternarios anidados */}
-        {renderTableContent()}
       </div>
 
       {/* Gráfica de ocupación */}

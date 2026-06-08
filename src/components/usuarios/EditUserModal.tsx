@@ -59,9 +59,9 @@ export default function EditUserModal({
     <Modal title="Editar rol" onClose={onClose}>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Info del usuario */}
-        <div className="bg-slate-800 rounded-xl px-4 py-3">
-          <p className="text-slate-400 text-xs mb-1">Usuario</p>
-          <p className="text-white font-medium">{user.email}</p>
+        <div className="bg-blue-100 rounded-lg px-4 py-3">
+          <p className="text-gray-700 text-xs mb-1">Usuario</p>
+          <p className="text-gray-900 font-medium">{user.email}</p>
         </div>
 
         <Select
@@ -75,13 +75,13 @@ export default function EditUserModal({
         />
 
         {error && (
-          <p className="text-red-400 text-sm bg-red-400/10 px-4 py-2 rounded-lg">
+          <p className="text-red-700 text-sm bg-red-100 px-4 py-2 rounded-lg">
             {error}
           </p>
         )}
 
         {success && (
-          <p className="text-green-400 text-sm bg-green-400/10 px-4 py-2 rounded-lg">
+          <p className="text-green-700 text-sm bg-green-100 px-4 py-2 rounded-lg">
             ✓ Rol actualizado exitosamente
           </p>
         )}
