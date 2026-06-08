@@ -60,22 +60,22 @@ export default function UsuariosPage() {
       <table className="w-full">
         <thead>
           <tr className="border-b border-blue-200">
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               ID
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Nombre
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Correo
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Rol
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Fecha de creación
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Acciones
             </th>
           </tr>
@@ -86,14 +86,14 @@ export default function UsuariosPage() {
               key={user.id}
               className="hover:bg-orange-50 transition-colors"
             >
-              <td className="px-6 py-4 text-xs text-amber-700 font-mono">
+              <td className="px-3 py-4 text-xs text-amber-700 font-mono">
                 {user.id.slice(0, 8)}...
               </td>
-              <td className="px-6 py-4 text-gray-900 font-medium">
+              <td className="px-3 py-4 text-gray-900 font-medium">
                 {user.name ?? "—"}
               </td>
-              <td className="px-6 py-4 text-gray-700 text-sm">{user.email}</td>
-              <td className="px-6 py-4">
+              <td className="px-3 py-4 text-gray-700 text-sm">{user.email}</td>
+              <td className="px-3 py-4">
                 <span
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg ${
                     user.role === "ADMIN"
@@ -104,14 +104,14 @@ export default function UsuariosPage() {
                   {user.role}
                 </span>
               </td>
-              <td className="px-6 py-4 text-gray-700 text-sm">
+              <td className="px-3 py-4 text-gray-700 text-sm">
                 {new Date(user.createdAt).toLocaleDateString("es-CO", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",
                 })}
               </td>
-              <td className="px-6 py-4">
+              <td className="px-3 py-4">
                 <button
                   onClick={() => setSelectedUser(user)}
                   className="px-3 py-1.5 text-xs font-medium border border-blue-300 text-blue-500 hover:bg-blue-50 rounded-lg transition-all"
@@ -127,9 +127,9 @@ export default function UsuariosPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div>
+      <div className="text-center md:text-left">
         <h1 className="text-xl md:text-2xl font-bold text-gray-900">Usuarios</h1>
         <p className="text-gray-600 text-xs md:text-sm mt-1">
           Gestión de roles del personal

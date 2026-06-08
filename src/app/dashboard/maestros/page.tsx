@@ -66,25 +66,25 @@ export default function MaestrosPage() {
       <table className="w-full">
         <thead>
           <tr className="border-b border-blue-200">
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               ID
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Habitación
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Tipo
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Capacidad
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Precio / noche
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Saldo
             </th>
-            <th className="text-left px-6 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+            <th className="text-left px-3 py-4 text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Creado por
             </th>
           </tr>
@@ -95,20 +95,20 @@ export default function MaestrosPage() {
               key={room.id}
               className="hover:bg-blue-50 transition-colors"
             >
-              <td className="px-6 py-4 text-xs text-gray-600 font-mono">
+              <td className="px-3 py-4 text-xs text-gray-600 font-mono">
                 {room.id.slice(0, 8)}...
               </td>
-              <td className="px-6 py-4 text-gray-900 font-medium">{room.name}</td>
-              <td className="px-6 py-4">
+              <td className="px-3 py-4 text-gray-900 font-medium">{room.name}</td>
+              <td className="px-3 py-4">
                 <span className="px-2.5 py-1 bg-blue-100 text-blue-600 text-xs rounded-lg">
                   {room.type}
                 </span>
               </td>
-              <td className="px-6 py-4 text-gray-700">{room.capacity} pax</td>
-              <td className="px-6 py-4 text-gray-700">
+              <td className="px-3 py-4 text-gray-700">{room.capacity} pax</td>
+              <td className="px-3 py-4 text-gray-700">
                 ${room.pricePerNight.toLocaleString("es-CO")}
               </td>
-              <td className="px-6 py-4">
+              <td className="px-3 py-4">
                 <span
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg ${
                     room.balance > 0
@@ -119,7 +119,7 @@ export default function MaestrosPage() {
                   {room.balance} noches
                 </span>
               </td>
-              <td className="px-6 py-4 text-amber-800 text-sm">
+              <td className="px-3 py-4 text-amber-800 text-sm">
                 {room.createdBy.name ?? room.createdBy.email}
               </td>
             </tr>
@@ -130,10 +130,10 @@ export default function MaestrosPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
+        <div className="text-center md:text-left">
           <h1 className="text-xl md:text-2xl font-bold text-amber-950">Habitaciones</h1>
           <p className="text-amber-700 text-xs md:text-sm mt-1">
             Gestión del inventario de habitaciones
